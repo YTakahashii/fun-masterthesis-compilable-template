@@ -20,47 +20,20 @@
 
 \documentclass[uplatex, a4paper, report, 11pt, oneside]{jsbook}
 
-% packages
-\usepackage[utf8]{inputenc}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{lmodern}             % use latin modern font
-\usepackage{amsmath,amssymb,amsthm}
+% タイトル・著者等の情報，未来大書式設定，ページサイズ，ヘッダ・フッター
+\input{environments/core.tex}
 
-\usepackage{layout}
+% 英語アブストラクト
+\input{abstracts/eabstract.tex}
 
-% TODO: タイトル・著者等の情報
-% cover.texから読み込みしないとコントロールシーケンスを適切に参照できない．
-\input{cover.tex}
-
-% 未来大書式設定
-\input{funstyle_master.tex}
-
-% TODO: 英語アブストラクト
-\input{eabstract.tex}
-
-% TODO: 日本語アブストラクト
-\input{jabstract.tex}
-
-% page size
-\textheight     = 22.6truecm
-\textwidth      = 14.7truecm
-\oddsidemargin  = 0.6truecm
-
-% header and footer
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\setlength{\footskip}{16pt}
-\fancyhf{}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
-\rhead{\leftmark}
-\renewcommand{\headrulewidth}{0pt}
-\cfoot{\thepage}
-\lfoot{~~ \\Master's thesis, Future University Hakodate}
-\lhead{\eshorttitle}
+% 日本語アブストラクト
+\input{abstracts/jabstract.tex}
 
 %-------------------------------------
 \begin{document}
-\input{document_style.tex}
+
+% スタイル
+\input{environments/document_style.tex}
 
 % 目次
 \tableofcontents
@@ -69,22 +42,17 @@
 % ページ番号初期化
 \setcounter{page}{0}
 
-% TODO: 本文
+% 本文
 \input{chapters/index.tex}
 
-% TODO: 謝辞
-\input{acknowledgment.tex}
+% 謝辞
+\input{sub-contents/acknowledgment.tex}
 
-% TODO: 発表等実績
-\input{publications.tex}
+% 発表等実績
+\input{sub-contents/publications.tex}
 
-% TODO: 参考文献
-% \input{bibliography.tex} % 手書きでbibliographyを入力する場合
-\bibliographystyle{acm} % bibTeXから自動生成する場合 styles: https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
-\bibliography{references} % bibTeXから自動生成する場合
-\thispagestyle{plain}
-\addcontentsline{toc}{chapter}{参考文献} % 目次に参考文献を出力する（funstyle_master.texから移動）
-
+% 参考文献
+\input{references/index.tex}
 bibTeXを使う場合は最低1つciteしないとエラーが発生するので注意．\cite{kuzmanovic2003low} % TODO: remove this line.
 
 % 図表一覧等自動生成

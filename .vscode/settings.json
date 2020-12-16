@@ -1,0 +1,52 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "command": "ptex2pdf",
+      "args": [
+        "-l",
+        "-u",
+        "-ot",
+        "-kanji=utf8 -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error",
+        "%DOCFILE%.tex"
+      ],
+      "name": "uplatex2pdf"
+    },
+    {
+      "command": "pbibtex",
+      "args": [
+        "%DOCFILE%",
+        "-kanji=utf8"
+      ],
+      "name": "pbibtex"
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "toolchain",
+      "tools": [
+        "uplatex2pdf",
+        "pbibtex", // bibTeXを使わない場合，この行を消す
+        "uplatex2pdf", // bibTeXを使わない場合，この行を消す
+        "uplatex2pdf"
+      ]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "editor.renderControlCharacters": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.aux": true,
+    "**/*.blg": true,
+    "**/*.dvi": true,
+    "**/*.lot": true,
+    "**/*.lof": true,
+    "**/*.out": true,
+    "**/*.toc": true,
+    "**/*.synctex.gz": true,
+    "__latexindent_temp.tex": true
+  },
+}

@@ -29,3 +29,66 @@
 2. main.tex の「TODO: 本文」以下に，作成した章に対応する\input{chapterX.tex}文を追記してください(X は章番号)
 
 3. main.tex と funstyle_master.tex と合わせて uplatex 環境でコンパイルし，PDF を作成します．
+
+## コンパイル方法
+
+PC に TeX Live をインストールしてから，以下の手順を選択してコンパイルする．
+
+### with command line
+
+#### bibTeX 無しの場合
+
+```.shell
+$ make build
+```
+
+#### bibTeX 有りの場合
+
+```.shell
+$ make build-with-bib
+```
+
+### with VSCode
+
+#### bibTeX 無しの場合の `.vscode/settings.json`
+
+```.jsonc
+{
+  ...,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "toolchain",
+      "tools": [
+        "uplatex2pdf",
+        "uplatex2pdf"
+      ]
+    }
+  ],
+  ...
+}
+```
+
+#### bibTeX 有りの場合の `.vscode/settings.json`
+
+```.jsonc
+{
+  ...,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "toolchain",
+      "tools": [
+        "uplatex2pdf",
+        "pbibtex",
+        "uplatex2pdf",
+        "uplatex2pdf"
+      ]
+    }
+  ],
+  ...
+}
+```
+
+#### 設定後
+
+1. [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) をインストールする．
+2. `main.tex` に input されているファイルを更新すると自動でコンパイルされる．

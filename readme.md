@@ -12,7 +12,7 @@
       - 参考文献の設定において，`\addcontentsline` の設定が原因でエラーが発生していたため，`main.tex` に移動した．
       - 参考文献の設定において，`\newblock` の定義が原因でエラーが発生したため，削除した．
     - `main.tex`
-      - 参考文献の出力の前に `\addcontentsline` を追加した．
+      - 参考文献の出力後に `\addcontentsline` を追加した．
 
 ## 論文作成の手順
 

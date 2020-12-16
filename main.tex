@@ -79,10 +79,11 @@
 \input{publications.tex}
 
 % TODO: 参考文献
-\addcontentsline{toc}{chapter}{参考文献} % 目次に参考文献を出力する（funstyle_master.texから移動）
 % \input{bibliography.tex} % 手書きでbibliographyを入力する場合
 \bibliographystyle{acm} % bibTeXから自動生成する場合 styles: https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
 \bibliography{references} % bibTeXから自動生成する場合
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{参考文献} % 目次に参考文献を出力する（funstyle_master.texから移動）
 
 bibTeXを使う場合は最低1つciteしないとエラーが発生するので注意．\cite{kuzmanovic2003low} % TODO: remove this line.
 

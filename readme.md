@@ -1,38 +1,33 @@
-# 公立はこだて未来大学・修士論文テンプレートファイル(unicode)
+# 公立はこだて未来大学・修士論文テンプレートファイル(バグ修正版)
 
-# 利用法ガイド
+本リポジトリは，テンプレートファイルに以下の問題があったため修正したものです．
 
-## 改訂履歴：
+- 公式で配布されているテンプレートでは，`funstyle_master.tex` がコメントアウトされて適用されていない．
+- `funstyle_master.tex` を適用するといくつかの不備によってコンパイルエラーが発生する．
 
-- 2019/11/26 初版 作成者：三上貞芳
-- 2020/12/12 修正版 作成者：髙橋佑太
-  - `funstyle_master.tex` を適用するとエラーが発生したため，下記のファイルを修正した．
-    - `funstyle_master.tex`
-      - `pdfkeywords` で使用されている `\ekeywords` が使用できないため，テキストに修正した．
-      - 参考文献の設定において，`\addcontentsline` の設定が原因でエラーが発生していたため，`main.tex` に移動した．
-      - 参考文献の設定において，`\newblock` の定義が原因でエラーが発生したため，削除した．
-    - `main.tex`
-      - 参考文献の出力後に `\addcontentsline` を追加した．
+オリジナルの README は[こちら](./readme.txt)からどうぞ．
 
-## 論文作成の手順
+## オリジナルファイルから修正を加えた点
 
-1. 以下の tex ファイルを作成してください
-
-- cover.tex 氏名・タイトル等の表紙情報
-- eabstract.tex 英語アブストラクト
-- jabstract.tex 日本語アブストラクト
-- chapterX.tex 本文第 X 章
-- publications.tex 発表・採録等の実績（確定分も含む）
-- acknowledgment.tex 謝辞
-- bibliography.tex 参考文献
-
-2. main.tex の「TODO: 本文」以下に，作成した章に対応する\input{chapterX.tex}文を追記してください(X は章番号)
-
-3. main.tex と funstyle_master.tex と合わせて uplatex 環境でコンパイルし，PDF を作成します．
+- `main.tex`
+  - `\input{funstyle_master.tex}` のコメントアウトを解除．
+  - `cover.tex` の input 後に `funstyle_master.tex` を input．
+  - 参考文献の出力後に `\addcontentsline` を追加．
+  - `document_style.tex` に設定の記述を分割．
+- `funstyle_master.tex`
+  - 参考文献の設定において，`\addcontentsline` の設定が原因でエラーが発生していたため，`main.tex` に移動．（おそらく設定箇所が適切ではない．）
+  - 参考文献の設定において，`\newblock` の定義が原因でエラーが発生したため削除．
+  - `pdftitle`,`pdfauthor`, `pdfsubject`, `pdfkeywords` を `cover.tex` から読み込み．
+- `acknowledgment.tex`
+  - 目次に，「謝辞」を追加．
+- `publications.tex`
+  - 目次に，「発表・採録実績」を追加．
 
 ## コンパイル方法
 
-PC に TeX Live をインストールしてから，以下の手順を選択してコンパイルする．
+PC に TeX Live をインストールしてから，以下の手順を選択してコンパイルしてください．
+
+Docker を使用する場合は各自でセットアップしてください．
 
 ### with command line
 
@@ -52,7 +47,7 @@ $ make build-with-bib
 
 #### bibTeX 無しの場合の `.vscode/settings.json`
 
-```.jsonc
+```.json
 {
   ...,
   "latex-workshop.latex.recipes": [
@@ -70,7 +65,7 @@ $ make build-with-bib
 
 #### bibTeX 有りの場合の `.vscode/settings.json`
 
-```.jsonc
+```.json
 {
   ...,
   "latex-workshop.latex.recipes": [
@@ -88,7 +83,7 @@ $ make build-with-bib
 }
 ```
 
-#### 設定後
+#### `.vscode/settings.json` の設定後
 
 1. [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) をインストールする．
 2. `main.tex` に input されているファイルを更新すると自動でコンパイルされる．

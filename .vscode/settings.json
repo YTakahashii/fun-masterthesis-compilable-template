@@ -32,6 +32,8 @@
     }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
   "editor.renderControlCharacters": true,
   "files.exclude": {
     "**/.git": true,

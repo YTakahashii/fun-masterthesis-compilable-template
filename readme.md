@@ -13,7 +13,7 @@
   - `\input{funstyle_master.tex}` のコメントアウトを解除．
   - `cover.tex` の input 後に `funstyle_master.tex` を input．
   - 参考文献の出力後に `\addcontentsline` を追加．
-  - `document_style.tex` に設定の記述を分割．
+  - `title.tex` にタイトルページの記述を分割．
 - `funstyle_master.tex`
   - 参考文献の設定において，`\addcontentsline` の設定が原因でエラーが発生していたため，`main.tex` に移動．（おそらく設定箇所が適切ではない．）
   - 参考文献の設定において，`\newblock` の定義が原因でエラーが発生したため削除．

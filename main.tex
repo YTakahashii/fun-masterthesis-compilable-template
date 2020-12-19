@@ -35,6 +35,9 @@
 % 未来大書式設定
 \input{funstyle_master.tex}
 
+% IPSJ研究会準拠の引用をする場合に必須
+\input{ipsj_bib_styles/ipsjurl.tex}
+
 % TODO: 英語アブストラクト
 \input{eabstract.tex}
 
@@ -80,12 +83,12 @@
 
 % TODO: 参考文献
 % \input{bibliography.tex} % 手書きでbibliographyを入力する場合
-\bibliographystyle{acm} % bibTeXから自動生成する場合 styles: https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
+\bibliographystyle{ipsj_bib_styles/ipsjunsrt} % bibTeXから自動生成する場合 styles: https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
 \bibliography{references} % bibTeXから自動生成する場合
 \thispagestyle{plain}
 \addcontentsline{toc}{chapter}{参考文献} % 目次に参考文献を出力する（funstyle_master.texから移動）
 
-bibTeXを使う場合は最低1つciteしないとエラーが発生するので注意．\cite{kuzmanovic2003low} % TODO: remove this line.
+bibTeXを使う場合は最低1つciteしないとエラーが発生するので注意．\cite{fun_official} % TODO: remove this line.
 
 % 図表一覧等自動生成
 \listoffigures
